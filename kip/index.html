@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css"><link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"><link rel="stylesheet" href="css/L.Control.Locate.min.css">
+        <link rel="stylesheet" href="css/qgis2web.css">
+        <link rel="stylesheet" href="css/MarkerCluster.css">
+        <link rel="stylesheet" href="css/MarkerCluster.Default.css">
+        <link rel="stylesheet" href="css/leaflet-search.css">
+        <style>
+        html, body{
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        #map {
+            width: 100%;
+            height: 100%;
+            padding: 40;
+            margin: 40;
+        }
+        </style>
+        <title></title>
+
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="Bootstrap, Parallax, Template, Registration, Landing">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="Grayrids">
+    <title>Aplikasi Karjo (Kartu Jokowi)</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/line-icons.css">
+    <link rel="stylesheet" href="../css/owl.carousel.css">
+    <link rel="stylesheet" href="../css/owl.theme.css">
+    <link rel="stylesheet" href="../css/nivo-lightbox.css">
+    <link rel="stylesheet" href="../css/magnific-popup.css">
+    <link rel="stylesheet" href="../css/slicknav.css">
+    <link rel="stylesheet" href="../css/animate.css">
+    <link rel="stylesheet" href="../css/main.css">    
+    <link rel="stylesheet" href="../css/responsive.css">
+
+    </head>
+    <body>
+        <!-- Header Section Start -->
+    <header id="hero-area" data-stellar-background-ratio="0.5">    
+      <!-- Navbar Start -->
+      <nav class="navbar navbar-expand-lg fixed-top scrolling-navbar indigo">
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <a href="index.html" class="navbar-brand"><img class="img-fulid" src="" alt=""></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+              <i class="lnr lnr-menu"></i>
+            </button>
+          </div>
+          <div class="collapse navbar-collapse" id="main-navbar">
+            <ul class="navbar-nav mr-auto w-100 justify-content-end">
+              <li class="nav-item">
+                <a class="nav-link page-scroll" href="../index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link page-scroll" href="#services">Jenis Kartu</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link page-scroll" href="#features">Features</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link page-scroll" href="#portfolios">Dokumentasi</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link page-scroll" href="#pricing">Detail Penerima</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link page-scroll" href="#contact">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Mobile Menu Start -->
+        <ul class="mobile-menu">
+           <li>
+              <a class="page-scroll" href="../index.html">Home</a>
+            </li>
+            <li>
+              <a class="page-scroll" href="#services">Services</a>
+            </li>
+            <li>
+              <a class="page-scroll" href="#features">Features</a>
+            </li>
+            <li>
+              <a class="page-scroll" href="#portfolios">Works</a>
+            </li>
+            <li>
+              <a class="page-scroll" href="#pricing">Pricing</a>
+            </li>
+            <li>
+              <a class="page-scroll" href="#contact">Contact</a>
+            </li>
+        </ul>
+        <!-- Mobile Menu End -->
+
+      </nav>
+      <!-- Navbar End -->   
+      <div class="container">      
+        <div class="row justify-content-md-center">
+          <div class="col-md-10">
+            <div class="contents text-center">
+              <h1 class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="0.3s">Aplikasi Karjo - Denah Penerima KIP</h1>
+              <p class="lead  wow fadeIn" data-wow-duration="1000ms" data-wow-delay="400ms">Menuju masa depan Indonesia yang lebih baik dengan Karjo. </p>
+              <a href="#" class="btn btn-common wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="400ms">DAFTAR</a>
+            </div>
+          </div>
+        </div> 
+      </div>           
+    </header>
+    <!-- Header Section End --> 
+        <div style="width:100%; height: 1000px;" id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script><script src="js/L.Control.Locate.min.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="js/leaflet.markercluster.js"></script>
+        <script src="js/leaflet-search.js"></script>
+        <script src="data/kecamatan_0.js"></script>
+        <script src="data/kips_1.js"></script>
+        <script src="data/kip_4.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:27, minZoom:1
+        }).fitBounds([[-7.99924877067,112.55423315],[-7.89828302278,112.676567436]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
+        L.control.locate().addTo(map);
+        var bounds_group = new L.featureGroup([]);
+        var basemap0 = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+            maxZoom: 27
+        });
+        basemap0.addTo(map);
+        function setBounds() {
+        }
+        function pop_kecamatan_0(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">AREA</th>\
+                        <td>' + (feature.properties['AREA'] !== null ? Autolinker.link(String(feature.properties['AREA'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>PERIMETER</strong><br />' + (feature.properties['PERIMETER'] !== null ? Autolinker.link(String(feature.properties['PERIMETER'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ANAD_'] !== null ? Autolinker.link(String(feature.properties['ANAD_'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ANAD_ID'] !== null ? Autolinker.link(String(feature.properties['ANAD_ID'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['KODE_UNSUR'] !== null ? Autolinker.link(String(feature.properties['KODE_UNSUR'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['KELURAHAN'] !== null ? Autolinker.link(String(feature.properties['KELURAHAN'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['KECAMATAN'] !== null ? Autolinker.link(String(feature.properties['KECAMATAN'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['KABUPATEN'] !== null ? Autolinker.link(String(feature.properties['KABUPATEN'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['PROVINSI'] !== null ? Autolinker.link(String(feature.properties['PROVINSI'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SOURCETHM'] !== null ? Autolinker.link(String(feature.properties['SOURCETHM'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['HECTARES'] !== null ? Autolinker.link(String(feature.properties['HECTARES'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_kecamatan_0_0(feature) {
+            switch(String(feature.properties['KELURAHAN'])) {
+                case 'DESA BALEARJOSARI':
+                    return {
+                pane: 'pane_kecamatan_0',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.46)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(215,25,28,0.46)',
+            }
+                    break;
+                case 'DESA KARANGBESUKI':
+                    return {
+                pane: 'pane_kecamatan_0',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.46)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(245,144,83,0.46)',
+            }
+                    break;
+                case 'DESA TASIKMADU':
+                    return {
+                pane: 'pane_kecamatan_0',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.46)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(254,222,153,0.46)',
+            }
+                    break;
+                case 'KELURAHAN PENAGGUNGAN':
+                    return {
+                pane: 'pane_kecamatan_0',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.46)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(221,241,180,0.46)',
+            }
+                    break;
+                case 'KELURAHAN SAWOJAJAR':
+                    return {
+                pane: 'pane_kecamatan_0',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.46)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(145,203,168,0.46)',
+            }
+                    break;
+                default:
+                    return {
+                pane: 'pane_kecamatan_0',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.46)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(43,131,186,0.46)',
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_kecamatan_0');
+        map.getPane('pane_kecamatan_0').style.zIndex = 400;
+        map.getPane('pane_kecamatan_0').style['mix-blend-mode'] = 'normal';
+        var layer_kecamatan_0 = new L.geoJson(json_kecamatan_0, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_kecamatan_0',
+            onEachFeature: pop_kecamatan_0,
+            style: style_kecamatan_0_0,
+        });
+        bounds_group.addLayer(layer_kecamatan_0);
+        map.addLayer(layer_kecamatan_0);
+        function pop_kips_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">id</th>\
+                        <td>' + (feature.properties['id'] !== null ? Autolinker.link(String(feature.properties['id'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">nama</th>\
+                        <td>' + (feature.properties['nama'] !== null ? Autolinker.link(String(feature.properties['nama'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">latitude</th>\
+                        <td>' + (feature.properties['latitude'] !== null ? Autolinker.link(String(feature.properties['latitude'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">longitude</th>\
+                        <td>' + (feature.properties['longitude'] !== null ? Autolinker.link(String(feature.properties['longitude'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Alamat</th>\
+                        <td>' + (feature.properties['Alamat'] !== null ? Autolinker.link(String(feature.properties['Alamat'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">kontak</th>\
+                        <td>' + (feature.properties['kontak'] !== null ? Autolinker.link(String(feature.properties['kontak'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['name'] !== null ? '<img src="images/' + String(feature.properties['name']).replace(/[\\\/:]/g, '_').trim() + '">' : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_kips_1_0() {
+            return {
+                pane: 'pane_kips_1',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/light-bulb.svg',
+            iconSize: [30.4, 30.4]
+        }),
+            }
+        }
+        map.createPane('pane_kips_1');
+        map.getPane('pane_kips_1').style.zIndex = 401;
+        map.getPane('pane_kips_1').style['mix-blend-mode'] = 'normal';
+        var layer_kips_1 = new L.geoJson(json_kips_1, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_kips_1',
+            onEachFeature: pop_kips_1,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_kips_1_0(feature));
+            },
+        });
+        var cluster_kips_1 = new L.MarkerClusterGroup({showCoverageOnHover: false,
+            spiderfyDistanceMultiplier: 2});
+        cluster_kips_1.addLayer(layer_kips_1);
+
+        bounds_group.addLayer(layer_kips_1);
+        cluster_kips_1.addTo(map);
+        var img_kip_heatmap_2 = 'data/kip_heatmap_2.png';
+        var img_bounds_kip_heatmap_2 = [[-7.99602768555,112.605198314],[-7.92306736935,112.657594869]];
+        var overlay_kip_heatmap_2 = new L.imageOverlay(img_kip_heatmap_2, img_bounds_kip_heatmap_2);
+        bounds_group.addLayer(overlay_kip_heatmap_2);
+        map.addLayer(overlay_kip_heatmap_2);
+        var img_kip_hotspot_3 = 'data/kip_hotspot_3.png';
+        var img_bounds_kip_hotspot_3 = [[-7.99603,112.6052],[-7.92307,112.65759]];
+        var overlay_kip_hotspot_3 = new L.imageOverlay(img_kip_hotspot_3, img_bounds_kip_hotspot_3);
+        bounds_group.addLayer(overlay_kip_hotspot_3);
+        map.addLayer(overlay_kip_hotspot_3);
+        function pop_kip_4(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">DN</th>\
+                        <td>' + (feature.properties['DN'] !== null ? Autolinker.link(String(feature.properties['DN'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_kip_4_0() {
+            return {
+                pane: 'pane_kip_4',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.478431372549)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(243,233,85,0.478431372549)',
+            }
+        }
+        map.createPane('pane_kip_4');
+        map.getPane('pane_kip_4').style.zIndex = 404;
+        map.getPane('pane_kip_4').style['mix-blend-mode'] = 'normal';
+        var layer_kip_4 = new L.geoJson(json_kip_4, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_kip_4',
+            onEachFeature: pop_kip_4,
+            style: style_kip_4_0,
+        });
+        bounds_group.addLayer(layer_kip_4);
+        map.addLayer(layer_kip_4);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'<img src="legend/kip_4.png" /> kip': layer_kip_4,"kip_hotspot": overlay_kip_hotspot_3,"kip_heatmap": overlay_kip_heatmap_2,'<img src="legend/kips_1.png" /> kips': cluster_kips_1,'kecamatan<br /><table><tr><td style="text-align: center;"><img src="legend/kecamatan_0_DESABALEARJOSARI0.png" /></td><td>DESA BALEARJOSARI</td></tr><tr><td style="text-align: center;"><img src="legend/kecamatan_0_DESAKARANGBESUKI1.png" /></td><td>DESA KARANGBESUKI</td></tr><tr><td style="text-align: center;"><img src="legend/kecamatan_0_DESATASIKMADU2.png" /></td><td>DESA TASIKMADU</td></tr><tr><td style="text-align: center;"><img src="legend/kecamatan_0_KELURAHANPENAGGUNGAN3.png" /></td><td>KELURAHAN PENAGGUNGAN</td></tr><tr><td style="text-align: center;"><img src="legend/kecamatan_0_KELURAHANSAWOJAJAR4.png" /></td><td>KELURAHAN SAWOJAJAR</td></tr><tr><td style="text-align: center;"><img src="legend/kecamatan_0_5.png" /></td><td></td></tr></table>': layer_kecamatan_0,}).addTo(map);
+        setBounds();
+        map.addControl(new L.Control.Search({
+            layer: layer_kips_1,
+            initial: false,
+            hideMarkerOnCollapse: true,
+            propertyName: 'nama'}));
+        L.ImageOverlay.include({
+            getBounds: function () {
+                return this._bounds;
+            }
+        });
+        </script>
+
+
+            <!-- Contact Section Start -->
+    <section id="contact" class="section" data-stellar-background-ratio="-0.2">      
+      <div class="contact-form">
+        <div class="container">
+          <div class="row">     
+            <div class="col-lg-6 col-sm-6 col-xs-12">
+              <div class="contact-us">
+                <h3>Contact With us</h3>
+                <div class="contact-address">
+                  <p>Jalan Medan Merdeka Utara No.3, RT.2/RW.3, Gambir, Kecamatan Gambir, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10110 </p>
+                  <p class="phone">Telepon: <span>(Telp : +62 21 2354 5001)</span></p>
+                  <p class="email">E-mail&nbsp;: <span>(webmaster@ksp.go.id)</span></p>
+                </div>
+                <div class="social-icons">
+                  <ul>
+                    <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li class="twistter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                    <li class="dribbble"><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>     
+            <div class="col-lg-6 col-sm-6 col-xs-12">
+              <div class="contact-block">
+                <form id="contactForm">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required data-error="Please enter your name">
+                        <div class="help-block with-errors"></div>
+                      </div>                                 
+                    </div>
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <input type="text" placeholder="Your Email" id="email" class="form-control" name="name" required data-error="Please enter your email">
+                        <div class="help-block with-errors"></div>
+                      </div> 
+                    </div>
+                    <div class="col-md-12">
+                      <div class="form-group"> 
+                        <textarea class="form-control" id="message" placeholder="Your Message" rows="8" data-error="Write your message" required></textarea>
+                        <div class="help-block with-errors"></div>
+                      </div>
+                      <div class="submit-button text-center">
+                        <button class="btn btn-common" id="submit" type="submit">Send Message</button>
+                        <div id="msgSubmit" class="h3 text-center hidden"></div> 
+                        <div class="clearfix"></div> 
+                      </div>
+                    </div>
+                  </div>            
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>           
+    </section>
+    <!-- Contact Section End -->
+
+    <!-- Footer Section Start -->
+    <footer>          
+      <div class="container">
+        <div class="row">
+          <!-- Footer Links -->
+          <div class="col-lg-6 col-sm-6 col-xs-12">
+            <ul class="footer-links">
+              <li>
+                <a href="#">Homepage</a>
+              </li>
+              <li>
+                <a href="#">Services</a>
+              </li>
+              <li>
+                <a href="#">About Us</a>
+              </li>
+              <li>
+                <a href="#">Contact</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-6 col-sm-6 col-xs-12">
+            <div class="copyright">
+              <p>All copyrights reserved &copy; 2019 - Designed & Developed by <a rel="nofollow" href="https://livedesain.com">Imroatul Faizah</a></p>
+            </div>
+          </div>  
+        </div>
+      </div>
+    </footer>
+    <!-- Footer Section End --> 
+
+    <!-- Go To Top Link -->
+    <a href="#" class="back-to-top">
+      <i class="lnr lnr-arrow-up"></i>
+    </a>
+    
+    <div id="loader">
+      <div class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+      </div>
+    </div>     
+
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="../js/jquery-min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.mixitup.js"></script>
+    <script src="../js/nivo-lightbox.js"></script>
+    <script src="../js/owl.carousel.js"></script>    
+    <script src="../js/jquery.stellar.min.js"></script>    
+    <script src="../js/jquery.nav.js"></script>    
+    <script src="../js/scrolling-nav.js"></script>    
+    <script src="../js/jquery.easing.min.js"></script>    
+    <script src="../js/smoothscroll.js"></script>    
+    <script src="../js/jquery.slicknav.js"></script>     
+    <script src="../js/wow.js"></script>   
+    <script src="../js/jquery.vide.js"></script>
+    <script src="../js/jquery.counterup.min.js"></script>    
+    <script src="../js/jquery.magnific-popup.min.js"></script>    
+    <script src="../js/waypoints.min.js"></script>    
+    <script src="../js/form-validator.min.js"></script>
+    <script src="../js/contact-form-script.js"></script>   
+    <script src="../js/main.js"></script>
+    </body>
+</html>
